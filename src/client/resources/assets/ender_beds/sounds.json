@@ -1,0 +1,9 @@
+{
+  "block.ender_bed.teleport": {
+    "subtitle": "subtitles.ender_beds.block.ender_bed.teleport",
+    "sounds": [
+      "minecraft:mob/endermen/portal",
+      "minecraft:mob/endermen/portal2"
+    ]
+  }
+}

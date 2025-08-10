@@ -1,0 +1,15 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.blockypenguin.mods.enderbeds.client.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "client": [
+    "BedRendererMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "overwrites": {
+    "requireAnnotations": true
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "id": "ender_beds",
+  "version": "${version}",
+  "name": "EnderBeds",
+  "description": "Ender beds that allow for an easy return to your spawnpoint.",
+  "authors": ["BlockyPenguin"],
+  "contributors": [
+    {
+      "name": "u/Zeus_Da_God",
+      "contact": {
+        "homepage": "https://redd.it/1m1s3p9/"
+      }
+    }
+  ],
+  "contact": {
+    "homepage": "https://mods.blockypenguin.com/ender_beds/",
+    "issues": "https://mods.blockypenguin.com/ender_beds/issues/",
+    "sources": "https://mods.blockypenguin.com/ender_beds/sources/",
+    "email": "mods+ender_beds@blockypenguin.com"
+  },
+  "license": "MIT",
+  "icon": "assets/ender_beds/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "fabric-datagen": [
+      "com.blockypenguin.mods.enderbeds.datagen.EnderBedsDataGenerator"
+    ],
+    "client": [
+      "com.blockypenguin.mods.enderbeds.client.EnderBedsClient"
+    ],
+    "main": [
+      "com.blockypenguin.mods.enderbeds.EnderBeds"
+    ]
+  },
+  "mixins": [
+    "enderbeds.mixins.json",
+    {
+      "config": "enderbeds.client.mixins.json",
+      "environment": "client"
+    }
+  ],
+  "custom": {
+    "loom:injected_interfaces": {
+      "net/minecraft/class_3222": ["com/blockypenguin/mods/enderbeds/mixinhelpers/IServerPlayerEntityMixin"]
+    }
+  },
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}
