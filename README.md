@@ -5,6 +5,13 @@ Inspired by [this Reddit thread](https://redd.it/1m1s3p9), I present to you:\
 
 <img alt="The mod's icon" src="https://cdn.modrinth.com/data/cached_images/a86eae12528c9feaa4568d676b1cc83c127c821a.png" width="30%">
 
+> [!NOTE]
+> I'm very well aware that the textures in this mod are quite basic - I am no texture artist.
+> If you *are*, and would like to submit your own textures, please don't hesitate to contribute!
+> 
+> The preferred way to do this is to [create a Pull Request](https://github.com/PenguinMods/EnderBeds/compare) or to [start a discussion](https://github.com/PenguinMods/EnderBeds/discussions/new/choose) on the GitHub repository. Alternatively, get in touch at mods+ender_beds@blockypenguin.com.\
+> Thanks! :D
+
 ## What does the mod add?
 
 ### Echo Dust
