@@ -32,6 +32,12 @@ You craft three of these from two Echo Dust, one Eye of Ender, and one Black Woo
 
 You craft one of these as you would a regular bed, using Ender Fabric instead of wool.
 
+### Gamerules
+The mod also adds a new gamerule, `enderBedWakeBehaviour`, which can be set to the following values:
+* `DO_NOTHING` - This is the default behaviour. When an Ender Bed is slept in, you will wake up at your spawn point and nothing else will happen.
+* `DESTROY_BED` - This will destroy the Ender Bed when you wake up. It will not drop an item.
+* `RETURN_ITEM_TO_PLAYER` - This will break the Ender Bed and give it back to the player when they wake.
+
 ## What does the mod do?
 
 When you sleep in an Ender Bed, your spawn is not set, and when you wake up you find yourself in the last bed you slept in (or your previous spawnpoint). Like when respawning, if you have no spawnpoint set or it is obstructed, you will be taken to the world spawn.
