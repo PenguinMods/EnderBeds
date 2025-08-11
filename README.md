@@ -5,6 +5,9 @@ Inspired by [this Reddit thread](https://redd.it/1m1s3p9), I present to you:\
 
 <img alt="The mod's icon" src="https://cdn.modrinth.com/data/cached_images/a86eae12528c9feaa4568d676b1cc83c127c821a.png" width="30%">
 
+[Get it on GitHub](https://github.com/PenguinMods/EnderBeds/releases)\
+[Get it on Modrinth](https://modrinth.com/mod/ender_beds)
+
 > [!NOTE]
 > I'm very well aware that the textures in this mod are quite basic - I am no texture artist.
 > If you *are*, and would like to submit your own textures, please don't hesitate to contribute!
