@@ -10,6 +10,9 @@ import net.fabricmc.api.Environment;
 import net.minecraft.block.BedBlock;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.SpawnReason;
+import net.minecraft.entity.mob.EndermiteEntity;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
@@ -21,6 +24,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.random.Random;
+import net.minecraft.world.GameRules;
 import net.minecraft.world.TeleportTarget;
 import net.minecraft.world.World;
 import net.minecraft.world.event.GameEvent;
@@ -105,6 +109,8 @@ public class EnderBedBlock extends BedBlock {
     }
 
     public static void onWake(ServerPlayerEntity player, BlockPos bedPos, ServerWorld bedWorld) {
+        ServerWorld playerWorld = player.getWorld();
+
         displayTeleportParticles(bedPos, bedWorld, Random.create());
         player.teleportTo(player.getRespawnTarget(true, TeleportTarget.NO_OP));
 
@@ -113,7 +119,7 @@ public class EnderBedBlock extends BedBlock {
 
         bedWorld.emitGameEvent(GameEvent.TELEPORT, bedPos, GameEvent.Emitter.of(player)); // Emit TP event at previous location
         emitSound.accept(bedPos, bedWorld);                                               // Play sound at previous location
-        emitSound.accept(BlockPos.ofFloored(player.getPos()), player.getWorld());         // Play sound at current location
+        emitSound.accept(BlockPos.ofFloored(player.getPos()), playerWorld);               // Play sound at current location
 
         EnderBedWakeBehaviour behaviour = bedWorld.getGameRules().get(EnderBedModGameRules.ENDER_BED_WAKE_BEHAVIOUR).get();
 
@@ -123,6 +129,17 @@ public class EnderBedBlock extends BedBlock {
             case DESTROY_BED:
                 bedWorld.breakBlock(bedPos, false);
             case DO_NOTHING: {}
+        }
+
+        double endermiteSpawnChance = playerWorld.getGameRules().getInt(EnderBedModGameRules.ENDER_BED_SPAWN_ENDERMITE_CHANCE) / 100d;
+        boolean canSpawnMobs = playerWorld.getGameRules().getBoolean(GameRules.DO_MOB_SPAWNING);
+
+        if (player.getRandom().nextFloat() < endermiteSpawnChance && canSpawnMobs) {
+            EndermiteEntity endermiteEntity = EntityType.ENDERMITE.create(playerWorld, SpawnReason.TRIGGERED);
+            if (endermiteEntity != null) {
+                endermiteEntity.refreshPositionAndAngles(player.getX(), player.getY(), player.getZ(), player.getYaw(), player.getPitch());
+                playerWorld.spawnEntity(endermiteEntity);
+            }
         }
     }
 }

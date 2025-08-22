@@ -27,6 +27,7 @@ class EnglishLangProvider extends FabricLanguageProvider {
         translationBuilder.add(EnderBedModGameRules.ENDER_BED_WAKE_BEHAVIOUR.getTranslationKey() + ".do_nothing", "Do nothing");
         translationBuilder.add(EnderBedModGameRules.ENDER_BED_WAKE_BEHAVIOUR.getTranslationKey() + ".destroy_bed", "Destroy bed");
         translationBuilder.add(EnderBedModGameRules.ENDER_BED_WAKE_BEHAVIOUR.getTranslationKey() + ".return_item_to_player", "Return to player");
+        translationBuilder.add(EnderBedModGameRules.ENDER_BED_SPAWN_ENDERMITE_CHANCE.getTranslationKey(), "Percentage chance to spawn an Endermite from an Ender Bed");
         translationBuilder.add(EnderBedModItemTags.ECHO_DUSTS, "Echo Dusts");
         translationBuilder.add(EnderBedModItemTags.CONVENTIONAL_ECHO_DUSTS, "Echo Dusts");
     }

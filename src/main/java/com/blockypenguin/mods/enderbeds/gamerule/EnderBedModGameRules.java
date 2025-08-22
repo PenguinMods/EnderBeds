@@ -12,5 +12,11 @@ public class EnderBedModGameRules {
         GameRuleFactory.createEnumRule(EnderBedWakeBehaviour.DO_NOTHING)
     );
 
+    public static final GameRules.Key<GameRules.IntRule> ENDER_BED_SPAWN_ENDERMITE_CHANCE = GameRuleRegistry.register(
+            "enderBedSpawnEndermiteChance",
+            GameRules.Category.SPAWNING,
+            GameRuleFactory.createIntRule(5, 0, 100)
+    );
+
     public static void init() {}
 }
