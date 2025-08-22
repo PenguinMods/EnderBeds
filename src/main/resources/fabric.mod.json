@@ -34,9 +34,9 @@
     ]
   },
   "mixins": [
-    "enderbeds.mixins.json",
+    "ender_beds.mixins.json",
     {
-      "config": "enderbeds.client.mixins.json",
+      "config": "ender_beds.client.mixins.json",
       "environment": "client"
     }
   ],
