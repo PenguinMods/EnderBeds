@@ -14,9 +14,9 @@
     }
   ],
   "contact": {
-    "homepage": "https://mods.blockypenguin.com/ender_beds/",
-    "issues": "https://mods.blockypenguin.com/ender_beds/issues/",
-    "sources": "https://mods.blockypenguin.com/ender_beds/sources/",
+    "homepage": "https://mods.blockypenguin.com/ender_beds",
+    "issues": "https://mods.blockypenguin.com/ender_beds/issues",
+    "sources": "https://mods.blockypenguin.com/ender_beds/source",
     "email": "mods+ender_beds@blockypenguin.com"
   },
   "license": "MIT",
