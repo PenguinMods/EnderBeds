@@ -109,7 +109,7 @@ public class EnderBedBlock extends BedBlock {
     }
 
     public static void onWake(ServerPlayerEntity player, BlockPos bedPos, ServerWorld bedWorld) {
-        ServerWorld playerWorld = player.getWorld();
+        ServerWorld playerWorld = player.getEntityWorld();
 
         displayTeleportParticles(bedPos, bedWorld, Random.create());
         player.teleportTo(player.getRespawnTarget(true, TeleportTarget.NO_OP));
@@ -119,7 +119,7 @@ public class EnderBedBlock extends BedBlock {
 
         bedWorld.emitGameEvent(GameEvent.TELEPORT, bedPos, GameEvent.Emitter.of(player)); // Emit TP event at previous location
         emitSound.accept(bedPos, bedWorld);                                               // Play sound at previous location
-        emitSound.accept(BlockPos.ofFloored(player.getPos()), playerWorld);               // Play sound at current location
+        emitSound.accept(BlockPos.ofFloored(player.getEntityPos()), playerWorld);               // Play sound at current location
 
         EnderBedWakeBehaviour behaviour = bedWorld.getGameRules().get(EnderBedModGameRules.ENDER_BED_WAKE_BEHAVIOUR).get();
 

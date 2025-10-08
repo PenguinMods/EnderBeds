@@ -18,7 +18,8 @@ import org.spongepowered.asm.mixin.injection.At;
 
 @Mixin(ServerPlayerEntity.class)
 public abstract class ServerPlayerEntityMixin extends PlayerEntity implements IServerPlayerEntityMixin {
-    @Shadow public abstract ServerWorld getWorld();
+    @Shadow
+    public abstract ServerWorld getEntityWorld();
 
     @Unique
     private EnderBedData ENDER_BED_DATA = null;
@@ -31,11 +32,11 @@ public abstract class ServerPlayerEntityMixin extends PlayerEntity implements IS
     @WrapWithCondition(method = "trySleep", at = @At(value = "INVOKE", target = "Lnet/minecraft/server/network/ServerPlayerEntity;setSpawnPoint(Lnet/minecraft/server/network/ServerPlayerEntity$Respawn;Z)V"))
     public boolean shouldSetRespawn(ServerPlayerEntity player, ServerPlayerEntity.Respawn respawn, boolean sendMessage, @Local(argsOnly = true) BlockPos blockPos) {
         // We are in a regular bed
-        if(!(player.getWorld().getBlockState(blockPos).getBlock() instanceof EnderBedBlock))
+        if(!(player.getEntityWorld().getBlockState(blockPos).getBlock() instanceof EnderBedBlock))
             return true;
 
         // We are in an EnderBedBlock
-        ENDER_BED_DATA = new EnderBedData(blockPos, this.getWorld());
+        ENDER_BED_DATA = new EnderBedData(blockPos, this.getEntityWorld());
         return false;
     }
 
