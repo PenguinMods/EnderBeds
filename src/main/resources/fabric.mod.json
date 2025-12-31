@@ -1,26 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "ender_beds",
-  "version": "${version}",
-  "name": "EnderBeds",
-  "description": "Ender beds that allow for an easy return to your spawnpoint.",
-  "authors": ["BlockyPenguin"],
-  "contributors": [
-    {
-      "name": "u/Zeus_Da_God",
-      "contact": {
-        "homepage": "https://redd.it/1m1s3p9/"
-      }
-    }
-  ],
-  "contact": {
-    "homepage": "https://mods.blockypenguin.com/ender_beds",
-    "issues": "https://mods.blockypenguin.com/ender_beds/issues",
-    "sources": "https://mods.blockypenguin.com/ender_beds/source",
-    "email": "mods+ender_beds@blockypenguin.com"
-  },
-  "license": "MIT",
-  "icon": "assets/ender_beds/icon.png",
+  "version": "1.2.0+1.21.11",
   "environment": "*",
   "entrypoints": {
     "fabric-datagen": [
@@ -40,14 +21,33 @@
       "environment": "client"
     }
   ],
-  "custom": {
-    "loom:injected_interfaces": {
-      "net/minecraft/class_3222": ["com/blockypenguin/mods/enderbeds/mixinhelpers/IServerPlayerEntityMixin"]
-    }
-  },
+  "accessWidener": "ender_beds.classtweaker",
   "depends": {
-    "fabricloader": ">=${loader_version}",
-    "fabric": "*",
-    "minecraft": "^${minecraft_version}"
-  }
+    "fabricloader": "\u003e\u003d0.18.4",
+    "minecraft": "~1.21.11-",
+    "java": "\u003e\u003d21",
+    "fabric-api": "\u003e\u003d0.140.2+1.21.11"
+  },
+  "name": "Ender Beds",
+  "description": "Ender beds that allow for an easy return to your spawnpoint.",
+  "authors": [
+    "BlockyPenguin"
+  ],
+  "contributors": [
+    {
+      "name": "u/Zeus_Da_God",
+      "contact": {
+        "homepage": "https://redd.it/1m1s3p9/",
+        "reddit": "https://reddit.com/u/Zeus_Da_God"
+      }
+    }
+  ],
+  "contact": {
+    "homepage": "https://mods.blockypenguin.com/ender_beds",
+    "issues": "https://mods.blockypenguin.com/ender_beds/issues",
+    "sources": "https://mods.blockypenguin.com/ender_beds/source",
+    "email": "mods+ender_beds@blockypenguin.com"
+  },
+  "license": "MIT",
+  "icon": "assets/ender_beds/icon.png"
 }

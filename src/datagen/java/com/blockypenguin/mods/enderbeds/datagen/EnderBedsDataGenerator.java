@@ -8,10 +8,10 @@ public class EnderBedsDataGenerator implements DataGeneratorEntrypoint {
     @Override
     public void onInitializeDataGenerator(FabricDataGenerator fabricDataGenerator) {
         FabricDataGenerator.Pack pack = fabricDataGenerator.createPack();
-        pack.addProvider(EnglishLangProvider::new);
-        pack.addProvider(BlockLootTableProvider::new);
-        pack.addProvider(BlockTagProvider::new);
-        pack.addProvider(ItemTagProvider::new);
-        pack.addProvider(RecipeProvider::new);
+        pack.addProvider(EnglishLangGen::new);
+        pack.addProvider(BlockLootTableGen::new);
+        pack.addProvider(BlockTagGen::new);
+        pack.addProvider(ItemTagGen::new);
+        pack.addProvider(RecipeGen::new);
     }
 }

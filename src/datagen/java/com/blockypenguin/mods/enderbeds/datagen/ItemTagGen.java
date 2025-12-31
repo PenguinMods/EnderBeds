@@ -5,25 +5,25 @@ import com.blockypenguin.mods.enderbeds.tag.EnderBedModItemTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.fabricmc.fabric.api.tag.convention.v2.ConventionalItemTags;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.RegistryWrapper;
-import net.minecraft.registry.tag.ItemTags;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.tags.ItemTags;
 
 import java.util.concurrent.CompletableFuture;
 
-class ItemTagProvider extends FabricTagProvider.ItemTagProvider {
-    protected ItemTagProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {
+class ItemTagGen extends FabricTagProvider.ItemTagProvider {
+    protected ItemTagGen(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
         super(output, registriesFuture);
     }
 
     @Override
-    protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
+    protected void addTags(HolderLookup.Provider registryLookup) {
         this.builder(ItemTags.BEDS)
-            .add(Registries.ITEM.getKey(EnderBedModItems.ENDER_BED).orElseThrow())
+            .add(BuiltInRegistries.ITEM.getResourceKey(EnderBedModItems.ENDER_BED).orElseThrow())
             .setReplace(false);
 
         this.builder(EnderBedModItemTags.ECHO_DUSTS)
-            .add(Registries.ITEM.getKey(EnderBedModItems.ECHO_DUST).orElseThrow())
+            .add(BuiltInRegistries.ITEM.getResourceKey(EnderBedModItems.ECHO_DUST).orElseThrow())
             .setReplace(false);
 
         this.builder(EnderBedModItemTags.CONVENTIONAL_ECHO_DUSTS)

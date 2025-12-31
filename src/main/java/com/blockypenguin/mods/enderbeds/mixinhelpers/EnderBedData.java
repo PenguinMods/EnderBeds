@@ -1,6 +1,6 @@
 package com.blockypenguin.mods.enderbeds.mixinhelpers;
 
-import net.minecraft.server.world.ServerWorld;
-import net.minecraft.util.math.BlockPos;
+import net.minecraft.core.BlockPos;
+import net.minecraft.server.level.ServerLevel;
 
-public record EnderBedData(BlockPos bedPos, ServerWorld bedWorld) {}
+public record EnderBedData(BlockPos bedPos, ServerLevel bedWorld) {}

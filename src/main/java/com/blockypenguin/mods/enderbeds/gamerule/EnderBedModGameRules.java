@@ -1,22 +1,19 @@
 package com.blockypenguin.mods.enderbeds.gamerule;
 
-import net.fabricmc.fabric.api.gamerule.v1.GameRuleFactory;
-import net.fabricmc.fabric.api.gamerule.v1.GameRuleRegistry;
-import net.fabricmc.fabric.api.gamerule.v1.rule.EnumRule;
-import net.minecraft.world.GameRules;
+import com.blockypenguin.mods.enderbeds.EnderBeds;
+import net.fabricmc.fabric.api.gamerule.v1.GameRuleBuilder;
+import net.minecraft.world.level.gamerules.GameRule;
+import net.minecraft.world.level.gamerules.GameRuleCategory;
 
 public class EnderBedModGameRules {
-    public static final GameRules.Key<EnumRule<EnderBedWakeBehaviour>> ENDER_BED_WAKE_BEHAVIOUR = GameRuleRegistry.register(
-        "enderBedWakeBehaviour",
-        GameRules.Category.MISC,
-        GameRuleFactory.createEnumRule(EnderBedWakeBehaviour.DO_NOTHING)
-    );
+    public static final GameRule<EnderBedWakeBehaviour> WAKE_BEHAVIOUR =
+        GameRuleBuilder.forEnum(EnderBedWakeBehaviour.DO_NOTHING)
+            .buildAndRegister(EnderBeds.id("wake_behaviour"));
 
-    public static final GameRules.Key<GameRules.IntRule> ENDER_BED_SPAWN_ENDERMITE_CHANCE = GameRuleRegistry.register(
-            "enderBedSpawnEndermiteChance",
-            GameRules.Category.SPAWNING,
-            GameRuleFactory.createIntRule(5, 0, 100)
-    );
+    public static final GameRule<Integer> ENDERMITE_SPAWN_CHANCE =
+        GameRuleBuilder.forInteger(5).range(0, 100)
+            .category(GameRuleCategory.SPAWNING)
+            .buildAndRegister(EnderBeds.id("endermite_spawn_chance"));
 
     public static void init() {}
 }

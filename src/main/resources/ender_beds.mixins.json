@@ -4,8 +4,9 @@
   "package": "com.blockypenguin.mods.enderbeds.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
-    "ServerPlayerEntityMixin",
-    "ServerWorldMixin"
+    "GameRuleRegistryFixMixin",
+    "ServerLevelMixin",
+    "ServerPlayerMixin"
   ],
   "injectors": {
     "defaultRequire": 1

@@ -22,22 +22,24 @@ repositories {
 loom {
     splitEnvironmentSourceSets()
 
-//    accessWidenerPath = file("src/main/resources/${project.modid}.classtweaker")
-
-    mods {
-        "${project.modid}" {
-            sourceSet sourceSets.main
-            sourceSet sourceSets.client
-        }
-    }
-
+    accessWidenerPath = file("src/main/resources/${project.modid}.classtweaker")
 }
 
 fabricApi {
     configureDataGeneration {
         createSourceSet = true
-        modId = "ender_beds_datagen"
+        modId = "${project.modid}"
         client = true
+    }
+}
+
+loom {
+    mods {
+        "${project.modid}" {
+            sourceSet sourceSets.main
+            sourceSet sourceSets.client
+            sourceSet sourceSets.datagen
+        }
     }
 }
 
@@ -83,15 +85,15 @@ tasks.register("generateModJson", FabricModJsonV1Task) {
         licenses = ["MIT"]
         icon "assets/${project.modid}/icon.png"
         environment = "*"
-        entrypoint('main', "${project.maven_group}.${project.modid}.${project.main_class}")
-        entrypoint('client', "${project.maven_group}.${project.modid}.client.${project.client_main_class}")
-        entrypoint('fabric-datagen', "${project.maven_group}.${project.modid}.datagen.${project.datagen_main_class}")
+        entrypoint('main', "${project.main_class}")
+        entrypoint('client', "${project.client_main_class}")
+        entrypoint('fabric-datagen', "${project.datagen_main_class}")
         mixin("${project.modid}.mixins.json")
         mixin({
             environment = "client"
             value = "${project.modid}.client.mixins.json"
         })
-//        accessWidener = "${project.modid}.classtweaker"
+        accessWidener = "${project.modid}.classtweaker"
         depends('fabricloader', ">=${project.loader_version}")
         depends('minecraft', "~${project.minecraft_version}-")
         depends('java', '>=21')

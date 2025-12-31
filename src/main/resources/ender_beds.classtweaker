@@ -1,0 +1,3 @@
+classTweaker v1 named
+
+inject-interface net/minecraft/server/level/ServerPlayer com/blockypenguin/mods/enderbeds/mixinhelpers/IServerPlayer
