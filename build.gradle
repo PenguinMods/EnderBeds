@@ -115,6 +115,10 @@ java {
     withSourcesJar()
 }
 
+sourcesJar {
+    mustRunAfter generateModJson
+}
+
 jar {
     inputs.property "archivesName", project.base.archivesName
 
