@@ -1,3 +1,14 @@
+> [!IMPORTANT]
+> Development of this mod has moved to [Codeberg](https://codeberg.org/PenguinMods/EnderBeds).
+> 
+> This GitHub repository will remain available for historical purposes, but active development will no longer take place here. Please see the [Codeberg repository](https://codeberg.org/PenguinMods/EnderBeds) for the latest version of the mod.
+> 
+> More info about the move can be found in [this announcement](https://github.com/PenguinMods/EnderBeds/discussions/5).
+
+Original README below:
+
+---
+
 # Ender Beds!
 
 Inspired by [this Reddit thread](https://redd.it/1m1s3p9), I present to you:\
